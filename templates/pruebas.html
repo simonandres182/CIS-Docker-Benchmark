@@ -5,6 +5,28 @@
 <div class="container">
     <div class="cuerpo">
         <h1>PRUEBAS</h1>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Prueba</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if pruebas %}
+                {% for prueba in pruebas %}
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{{ prueba['nombre'] }}</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                {% endfor %}
+              {% endif %}
+            </tbody>
+          </table>
     </div>
 </div>
 

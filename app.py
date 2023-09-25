@@ -1,7 +1,13 @@
 from flask import Flask
 from flask import render_template
+import sqlite3
 
 app = Flask(__name__)
+
+def get_db_connection():
+    conn = sqlite3.connect('app.db')
+    conn.row_factory = sqlite3.Row
+    return conn
 
 @app.route("/")
 def index():
@@ -9,7 +15,10 @@ def index():
 
 @app.route("/pruebas")
 def pruebas():
-    return render_template('pruebas.html')
+    conn = get_db_connection()
+    pruebas = conn.execute('SELECT * FROM pruebas').fetchall()
+    conn.close()
+    return render_template('pruebas.html', pruebas=pruebas)
 
 
 
