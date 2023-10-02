@@ -24,6 +24,11 @@ def registrar_resultado(prueba_id, resultado, msg):
 def index():
     return render_template('index.html')
 
+@app.route("/reporte")
+def reporte():
+    return render_template('reporte.html')
+
+
 @app.route("/pruebas", methods=['GET','POST'])
 def pruebas():
     if request.method == 'GET':

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-reboot.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-grid.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.min.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/icono.ico') }}">
 </head>
 
@@ -32,6 +33,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('pruebas') }}">Pruebas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('reporte') }}">Reportes</a>
               </li>
             </ul>
             <a class="navbar-brand" href="#"><b>CIS-Docker Benchmark</b></a>
