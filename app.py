@@ -161,6 +161,19 @@ def pruebas():
             else:
                 registrar_resultado(prueba_id, "N", primera_linea)
                 return {'prueba':'fail'}
+            
+        elif (prueba_id == 11):
+            comando = "stat -c %U:%G /usr/lib/systemd/system/docker.socket | grep -v root:root"
+            resultado = subprocess.getoutput(comando)
+            lineas = resultado.split('\n')
+            primera_linea = lineas[0]
+            time.sleep(1) #damos tiempo para capturas la salida
+            if primera_linea == "":
+                registrar_resultado(prueba_id, "S", primera_linea)
+                return {'prueba':'pass'}
+            else:
+                registrar_resultado(prueba_id, "N", primera_linea)
+                return {'prueba':'fail'}
 
         else:
             return {'prueba':''}
