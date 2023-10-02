@@ -135,7 +135,32 @@ def pruebas():
             else:
                 registrar_resultado(prueba_id, "N", primera_linea)
                 return {'prueba':'fail'}
-
+            
+        elif (prueba_id == 9):
+            comando = "stat -c %a /run/containerd/containerd.sock"
+            resultado = subprocess.getoutput(comando)
+            lineas = resultado.split('\n')
+            primera_linea = lineas[0]
+            time.sleep(1) #damos tiempo para capturas la salida
+            if primera_linea == "660":
+                registrar_resultado(prueba_id, "S", primera_linea)
+                return {'prueba':'pass'}
+            else:
+                registrar_resultado(prueba_id, "N", primera_linea)
+                return {'prueba':'fail'}
+            
+        elif (prueba_id == 10):
+            comando = "stat -c %a /usr/lib/systemd/system/docker.service"
+            resultado = subprocess.getoutput(comando)
+            lineas = resultado.split('\n')
+            primera_linea = lineas[0]
+            time.sleep(1) #damos tiempo para capturas la salida
+            if primera_linea == "644":
+                registrar_resultado(prueba_id, "S", primera_linea)
+                return {'prueba':'pass'}
+            else:
+                registrar_resultado(prueba_id, "N", primera_linea)
+                return {'prueba':'fail'}
 
         else:
             return {'prueba':''}
