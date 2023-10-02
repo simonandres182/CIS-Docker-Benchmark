@@ -20,7 +20,9 @@
                   <tr>
                     <th scope="row">{{ loop.index }}</th>
                     <td>{{ prueba['nombre'] }}</td>
-                    <td> <button name="pass-{{ loop.index }}" id="pass-{{ loop.index }}" type="button" class="btn btn-success">PASS</button> </td>
+                    <td>
+                      <button name="pass-{{ loop.index }}" id="pass-{{ loop.index }}" type="button" class="btn btn-success">PASS</button> 
+                      <button name="fail-{{ loop.index }}" id="fail-{{ loop.index }}" type="button" class="btn btn-danger">FAIL</button> </td>
                     <td><button name="probar-{{ prueba['id'] }}" id="probar-{{ prueba['id'] }}" type="button" class="btn btn-outline-primary">Probar</button></td>
                   </tr>
                 {% endfor %}
