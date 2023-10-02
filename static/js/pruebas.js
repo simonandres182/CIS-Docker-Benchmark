@@ -15,6 +15,8 @@ $(document).ready(function () {
     $("#fail-3").hide();
     $("#pass-4").hide();
     $("#fail-4").hide();
+    $("#pass-5").hide();
+    $("#fail-5").hide();
 });
 
 
@@ -85,6 +87,24 @@ $("#probar-4").on("click", function () {
                 $("#pass-4").show();
             } else {
                 $("#fail-4").show();
+            }
+        },
+        contentType: "application/json",
+        dataType: 'json'
+    });
+});
+
+$("#probar-5").on("click", function () {
+    $.blockUI({ message: '<h1><img src="https://tamilnaducouncil.ac.in/wp-content/uploads/2018/10/loading-gif.gif" /> Ejecuntando Prueba..</h1>' });
+    $.ajax({
+        type: 'POST',
+        url: './pruebas',
+        data: '{"prueba_id":5}',
+        success: function (data) {
+            if (data.prueba == 'pass') {
+                $("#pass-5").show();
+            } else {
+                $("#fail-5").show();
             }
         },
         contentType: "application/json",
