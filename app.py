@@ -1,5 +1,6 @@
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, url_for
+from flask_weasyprint import HTML, render_pdf
 import sqlite3
 import subprocess
 import time
@@ -33,7 +34,9 @@ def reporte_pruebas():
     conn = get_db_connection()
     pruebas = conn.execute('SELECT * FROM pruebas').fetchall()
     conn.close()
-    return render_template('reporte_pruebas.html', pruebas=pruebas)
+    #return render_template('reporte_pruebas.html', pruebas=pruebas)
+    html = render_template('reporte_pruebas.html', pruebas=pruebas)
+    return render_pdf(HTML(string=html))
 
 
 @app.route("/pruebas", methods=['GET','POST'])

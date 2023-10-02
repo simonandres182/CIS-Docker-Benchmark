@@ -5,8 +5,17 @@
 <div class="container">
     <div class="cuerpo">
         <h1>REPORTES</h1>
-        <button type="button" class="btn btn-outline-primary">Pruebas <i class="bi bi-file-earmark-pdf"></i></button>
+        <button type="button" class="btn btn-outline-primary" id="reporte_pruebas">Pruebas <i class="bi bi-file-earmark-pdf"></i></button>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $( "#reporte_pruebas" ).on( "click", function() {
+            var url = $(this).attr('href'); 
+            window.open('./reporte/pruebas', '_blank');
+        });
+    });
+</script>
 
 {% endblock %}
