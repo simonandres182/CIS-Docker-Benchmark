@@ -96,6 +96,19 @@ def pruebas():
             else:
                 registrar_resultado(prueba_id, "N", primera_linea)
                 return {'prueba':'fail'}
+            
+        elif (prueba_id == 6):
+            comando = "stat -c %U:%G /var/run/docker.sock | grep -v root:docker"
+            resultado = subprocess.getoutput(comando)
+            lineas = resultado.split('\n')
+            primera_linea = lineas[0]
+            time.sleep(1) #damos tiempo para capturas la salida
+            if primera_linea == "":
+                registrar_resultado(prueba_id, "S", primera_linea)
+                return {'prueba':'pass'}
+            else:
+                registrar_resultado(prueba_id, "N", primera_linea)
+                return {'prueba':'fail'}
 
         else:
             return {'prueba':''}
