@@ -28,6 +28,13 @@ def index():
 def reporte():
     return render_template('reporte.html')
 
+@app.route("/reporte/pruebas")
+def reporte_pruebas():
+    conn = get_db_connection()
+    pruebas = conn.execute('SELECT * FROM pruebas').fetchall()
+    conn.close()
+    return render_template('reporte_pruebas.html', pruebas=pruebas)
+
 
 @app.route("/pruebas", methods=['GET','POST'])
 def pruebas():
