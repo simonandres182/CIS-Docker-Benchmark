@@ -9,19 +9,19 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Estado</th>
                 <th scope="col">Prueba</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
               </tr>
             </thead>
             <tbody>
               {% if pruebas %}
                 {% for prueba in pruebas %}
                   <tr>
-                    <th scope="row">1</th>
+                    <th scope="row">{{ loop.index }}</th>
                     <td>{{ prueba['nombre'] }}</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td> <button name="pass-{{ loop.index }}" id="pass-{{ loop.index }}" type="button" class="btn btn-success">PASS</button> </td>
+                    <td><button name="probar-{{ prueba['id'] }}" id="probar-{{ prueba['id'] }}" type="button" class="btn btn-outline-primary">Probar</button></td>
                   </tr>
                 {% endfor %}
               {% endif %}
@@ -29,5 +29,7 @@
           </table>
     </div>
 </div>
+
+<script src="{{ url_for('static', filename='js/pruebas.js') }}"></script>
 
 {% endblock %}
