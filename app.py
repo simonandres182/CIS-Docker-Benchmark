@@ -5,6 +5,7 @@ import sqlite3
 import subprocess
 import time
 import os
+import datetime
 
 app = Flask(__name__)
 
@@ -29,16 +30,26 @@ def index():
 def reporte():
     return render_template('reporte.html')
 
-@app.route("/reporte/pruebas")
-def reporte_pruebas():
+@app.route("/reporte/pruebas/pdf")
+def reporte_pruebas_pdf():
     conn = get_db_connection()
     pruebas = conn.execute('SELECT * FROM pruebas').fetchall()
     conn.close()
-    #return render_template('reporte_pruebas.html', pruebas=pruebas)
-    html = render_template('reporte_pruebas.html', pruebas=pruebas)
+    now = datetime.datetime.now()
+    formatted_date = "Generado el: "+now.strftime("%d/%m/%Y") + " a las " + now.strftime("%H:%M")
+    #return render_template('reporte_pruebas.html', pruebas=pruebas, ahora=formatted_date)
+    html = render_template('reporte_pruebas.html', pruebas=pruebas, ahora=formatted_date)
     return render_pdf(HTML(string=html))
 
-
+@app.route("/reporte/pruebas/html")
+def reporte_pruebas_html():
+    conn = get_db_connection()
+    pruebas = conn.execute('SELECT * FROM pruebas').fetchall()
+    conn.close()
+    now = datetime.datetime.now()
+    formatted_date = "Generado el: "+now.strftime("%d/%m/%Y") + " a las " + now.strftime("%H:%M")
+    return render_template('reporte_pruebas.html', pruebas=pruebas, ahora=formatted_date)
+    
 @app.route("/pruebas", methods=['GET','POST'])
 def pruebas():
     if request.method == 'GET':

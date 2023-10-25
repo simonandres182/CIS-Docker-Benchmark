@@ -1,3 +1,8 @@
 .cuerpo {
     margin-top: 10px !important;
 }
+
+html {
+    font-size: 10pt;
+    font-family: serif;
+}
