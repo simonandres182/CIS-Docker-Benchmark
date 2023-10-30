@@ -1,5 +1,3 @@
-Claro, aquí está el texto formateado para que puedas copiarlo y usarlo en GitHub:
-
 ```markdown
 # Manual de Usuario - CIS-Docker Benchmark
 
