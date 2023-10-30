@@ -41,8 +41,3 @@ En la parte superior de la aplicación, encontrarás una barra de navegación qu
 1. Haz clic en la opción "Reportes" en la barra de navegación.
 2. En la sección de reportes, verás una lista de pruebas anteriores con sus resultados. Cada prueba mostrará si ha pasado (PASS) o ha fallado (FAIL).
 3. Los resultados se actualizan en tiempo real y te proporcionarán una visión clara del estado de seguridad de tu sistema Docker.
-
-¡Esto concluye el manual de usuario para la aplicación "CIS-Docker Benchmark"! Ahora puedes utilizar la aplicación para realizar pruebas de seguridad en sistemas Docker y verificar su estado. Ten en cuenta que la aplicación y su interfaz pueden variar según la configuración y la versión específica utilizada.
-```
-
-Simplemente copia y pega este texto en tu archivo README.md en GitHub, y debería mostrarse correctamente en la plataforma.
