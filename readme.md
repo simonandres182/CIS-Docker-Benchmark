@@ -1,7 +1,7 @@
-```markdown
-# Manual de Usuario - CIS-Docker Benchmark
 
-## 1. Instalación
+### Manual de Usuario - CIS-Docker Benchmark
+
+### 1. Instalación
 ### 1.1. Clonar el Repositorio
 ```bash
 git clone git@github.com:simonandres182/CIS-Docker-Benchmark.git
